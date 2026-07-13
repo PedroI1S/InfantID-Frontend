@@ -25,6 +25,8 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_DEMO: "true"
       # SPA fallback: GitHub Pages não tem rewrite, então 404.html precisa servir o app
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3

@@ -1,8 +1,10 @@
 import axios from 'axios'
+import { DEMO, demoAdapter } from './demo.js'
 
 const client = axios.create({
   baseURL: import.meta.env.VITE_API_BASE || '/api',
   headers: { 'Content-Type': 'application/json' },
+  ...(DEMO && { adapter: demoAdapter }),
 })
 
 client.interceptors.response.use(
